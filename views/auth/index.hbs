@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>ВХОД | SMART NEWS</title>
+
+    <meta charset="UTF-8">
+    <!--<meta charset="windows-1251">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Самые свежие новости">
+    <link rel="stylesheet" href="/styles/auth.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+{{#if is_dark_theme}}
+    <body data-theme="dark">
+{{else}}
+    <body data-theme="white">
+{{/if}}
+
+{{>header}}
+{{>menu}}
+
+<!-- News strip component -->
+<aside id="news_strip"></aside>
+
+<!-- main page content -->
+<main class="content">
+    <div class="auth_alert">{{message}}</div>
+
+    <div id="auth_app"></div>
+
+
+
+
+
+
+</main>
+
+
+
+<script src="/scripts/NewsStrip.js"></script>
+<script src="/scripts/Auth.js"></script>
+</body>
+
+</html>

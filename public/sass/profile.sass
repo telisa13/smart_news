@@ -1,0 +1,236 @@
+@import "common"
+@import "partials/header"
+@import "partials/menu"
+@import "partials/newsStrip"
+@import "partials/content"
+@import "partials/Friends"
+@import "partials/Switch"
+
+$sizeDiv: 450px
+$sizeButton: 40px
+
+main.content
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  margin-right: 0
+  margin-left: 0
+  width: 100%
+  div.auth_alert
+    color: red
+    font: 100 1em $fnt_Exo2_Light
+    letter-spacing: 0.1em
+  div.auth_info
+    color: green
+    font: 100 1em $fnt_Exo2_Light
+    letter-spacing: 0.1em
+div#friends_app
+  margin: 20px auto
+  max-width: 700px
+  width: 100%
+
+
+details
+  margin: 0 auto
+  max-width: 700px
+  width: 100%
+  border-radius: 3px
+  overflow: hidden
+  summary
+    display: flex
+    align-items: center
+    font: 100 1em $fnt_Exo2_Light
+    letter-spacing: 0.1em
+    outline: none
+    cursor: pointer
+    background: white
+    height: 40px
+    padding-left: 10px
+    &:hover
+      text-decoration: underline
+form.profile_form
+  display: flex
+  height: 100%
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  margin-bottom: 30px
+  background: $pastelLight_Transparent
+  padding: 20px 0
+
+  h1
+    //width: 100%
+    margin: 0 0 10px 0
+    //text-align: center
+    font: 100 1.4em $fnt_KellySlab
+    letter-spacing: 0.1em
+    margin-bottom: 20px
+  h2
+    //width: 100%
+    text-align: center
+    margin: 30px 0 10px 0
+    font: 100 1.2em $fnt_KellySlab
+    letter-spacing: 0.1em
+    margin-bottom: 20px
+  label
+    position: relative
+    height: 40px
+    margin-bottom: 25px
+    width: 250px
+
+    div#color_pick_app
+      position: absolute
+      right: 5px
+      top: calc(100% / 2 - 13px)
+      width: 26px
+      height: 26px
+    input, select
+      height: 100%
+      width: 100%
+      padding-left: 5px
+      background: transparent !important
+      border-radius: 0 !important
+      border: none
+      border-bottom: 1.5px solid black
+      box-sizing: border-box
+      outline: none
+
+      font: 100 1em $fnt_Exo2_Light
+      letter-spacing: 0.1em
+
+      &[name="name"]
+        padding-right: 36px
+
+
+      option
+        border: none
+        outline: none
+        background: transparent
+        border-radius: 0
+      &:focus
+        border-bottom-color: $pastelLight_0
+
+
+
+
+
+  div.dayTime
+    display: flex
+    width: 250px
+    justify-content: space-between
+    align-items: space-between
+    label
+      width: 140px
+      input, select
+        padding-left: 0
+        text-align: center
+        letter-spacing: 0.05em
+      &:last-child
+        width: 80px
+  .btn
+    height: 40px
+    width: 180px
+    margin-bottom: 10px
+    cursor: pointer
+    border: none
+    outline: none
+    font: 100 1.2em $fnt_KellySlab
+    letter-spacing: 0.05em
+    background: transparent
+    color: darkgreen
+    &:hover
+      text-decoration: underline
+  a.logout
+    margin-top: 20px
+    text-align: center
+    color: darkred
+    font: 100 1em $fnt_KellySlab
+    letter-spacing: 0.05em
+    transition: .3s
+    &:hover
+      letter-spacing: 0.1em
+
+      text-decoration: underline
+
+
+div.history
+  margin: 0 auto
+  //background: red
+  max-width: 700px
+  width: 100%
+  margin-bottom: calc(#{$sz_StripContent} + #{$sz_StripMargin} )
+
+  h3
+    font: 100 1em $fnt_Exo2_Regular
+    letter-spacing: 0.1em
+
+
+  $height: 120px
+  $imageWidth: 200px
+  div.news
+    display: flex
+    width: 100%
+    min-height: $height
+    margin: 20px 0
+    user-select: none
+    //background: white
+    //border: 1px solid black
+    box-sizing: border-box
+    transition: .3s
+    &:hover
+      background: rgba(255, 255, 255, 0.9)
+    div.image
+      min-width: $imageWidth
+      min-height: 100%
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center
+    div.info
+      display: grid
+      grid-template-rows: auto auto 1fr
+      padding: 5px 10px
+      word-break: break-all
+      width: calc(100% - 20px)
+      //width: 100%
+      span.title
+        margin: 0
+        font: 100 .9em $fnt_Exo2_Regular
+        letter-spacing: 0.07em
+      p
+        font: 100 .9em $fnt_Exo2_Light
+        margin: 8px 0
+      footer.news
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        a
+          transition: .3s
+          color: #eca32a
+          font: 100 .9em $fnt_Exo2_Regular
+          &:hover
+            text-decoration: underline
+            color: #ff4400
+        div.news_stat
+          display: flex
+          align-items: center
+          font: 100 .9em $fnt_Exo2_Light
+          img
+            width: 16px
+            height: 16px
+            margin-right: 6px
+          span
+            margin-right: 10px
+            &.interest
+              font-family: $fnt_Exo2_Regular
+
+
+
+@media only screen and (max-width: $at530)
+  div.news
+    flex-direction: column
+    div.image
+      height: 200px !important
+    //div.info
+    //  padding: 5px 0 !important
+    //  width: 100% !important

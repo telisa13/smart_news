@@ -1,0 +1,98 @@
+@import "common"
+@import "partials/header"
+@import "partials/menu"
+@import "partials/newsStrip"
+@import "partials/content"
+
+$sizeDiv: 450px
+$sizeButton: 40px
+
+main.content
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  div.auth_alert
+    color: red
+    font: 100 1em $fnt_Exo2_Light
+    letter-spacing: 0.1em
+
+
+div.auth_div
+  display: grid
+  grid-template-rows: 1fr 40px
+
+  padding: 70px
+  box-sizing: border-box
+  background: url('/images/login_bg.png') center center no-repeat
+  background-size: cover
+  width: $sizeDiv
+  height: $sizeDiv
+  margin-bottom: calc(#{$sz_StripContent} + #{$sz_StripMargin} )
+  div.auth_forms
+    position: relative
+    form.auth_form
+      display: flex
+      height: 100%
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+
+      h1
+        width: 100%
+        margin: 0 0 10px 0
+        font: 100 2em $fnt_KellySlab
+        letter-spacing: 0.1em
+      label
+        height: 40px
+        margin-bottom: 15px
+        width: 250px
+
+        input
+          height: 100%
+          width: 100%
+          padding-left: 5px
+          background: transparent
+          border: none
+          border-bottom: 1.5px solid black
+          box-sizing: border-box
+          outline: none
+
+          font: 100 1em $fnt_Exo2_Light
+          letter-spacing: 0.1em
+          &:focus
+            border-bottom-color: $pastelLight_0
+      input[type="submit"]
+        height: 40px
+        width: 180px
+        margin-bottom: 10px
+        cursor: pointer
+        border: none
+        outline: none
+        font: 100 1.2em $fnt_KellySlab
+        letter-spacing: 0.05em
+        background: transparent
+        &:hover
+          text-decoration: underline
+
+  div.auth_buttons
+    display: flex
+    width: 100%
+    align-items: center
+    justify-content: center
+    div.btnSwitch
+      cursor: pointer
+      border: none
+      outline: none
+      color: $blackEasy_2
+      font: 100 .9em $fnt_Exo2_Light
+      letter-spacing: 0.05em
+      &:hover
+        text-decoration: underline
+
+@media only screen and (max-width: $at530)
+  $sizeDiv: 350px
+  div.auth_div
+    padding: 50px
+    width: $sizeDiv
+    height: $sizeDiv

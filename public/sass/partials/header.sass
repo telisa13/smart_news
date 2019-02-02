@@ -1,0 +1,56 @@
+@import "../fonts"
+@import "../breakPoints"
+$height: 60px
+
+@mixin style($color)
+  header.pageHeader
+    display: grid
+    grid-template-columns: 100px 1fr 1fr 100px
+    grid-template-rows: repeat(2, auto)
+    min-height: $height
+    font-family: $fnt_Fredericka, $fnt_KellySlab
+    color: $color
+    user-select: none
+    div.title
+      grid-column: span 2
+      text-align: center
+      font-size: 3em
+    div.container
+      display: flex
+      flex-flow: column nowrap
+      justify-content: center
+      span
+        margin-bottom: 5px
+
+      &.datetime
+        align-items: flex-end
+  @media only screen and (max-width: $at800)
+    header.pageHeader
+      div.title
+        grid-column: span 4
+      div.container
+        grid-row-start: 2
+        &.datetime
+          grid-column-start: 4
+
+  @media only screen and (max-width: $at530)
+    header.pageHeader
+      div.title
+        font-size: 2em
+
+  @media only screen and (max-width: $at400)
+    header.pageHeader
+      div.title
+        font-size: 1.7em
+
+
+body
+  &[data-theme='dark']
+    $color: white
+    @include style($color)
+
+  &[data-theme='white']
+    $color: black
+    @include style($color)
+
+

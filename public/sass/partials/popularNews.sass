@@ -1,0 +1,110 @@
+@import "../fonts"
+@import "../colors"
+@import "../sizes"
+@import "../breakPoints"
+
+$size: 300px
+$imageHeight: 150px
+
+$iconSize: 15px
+$itemContentPadding: 5px
+
+
+
+@mixin style($infoColor, $readColor)
+  a.popular_news
+    display: flex
+    margin: 0 auto 60px auto
+    flex-direction: column
+    justify-content: space-between
+    //background: white
+    min-height: $size
+    width: $size
+    text-align: justify
+    border: 1px solid $blackEasy_1
+    padding: $itemContentPadding
+    box-sizing: border-box
+
+    /* header */
+    &>h2
+      display: block
+      margin: 0
+      padding: $itemContentPadding
+      font: 400 1.5em $fnt_KellySlab
+      text-align: center
+
+    /* image */
+    div.item_image
+      width: 100%
+      height: $imageHeight
+      background-size: cover
+      background-position: center
+      filter: sepia(50%)
+      transition: .3s
+      img.icon
+        margin: 10px
+        width: $iconSize
+        height: $iconSize
+
+    /* title */
+    h3.item_title
+      display: block
+      margin: 0
+      padding: $itemContentPadding
+      font: 400 1.1em $fnt_KellySlab
+      //max-height: 40px
+      word-break: break-all
+      overflow: hidden
+      text-overflow: clip
+
+    /* date time views */
+    div.info
+      display: flex
+      align-items: center
+      justify-content: space-between
+      padding: $itemContentPadding
+      font: 400 .9em $fnt_Podkova_Regular
+      letter-spacing: 0.05em
+      color: $infoColor
+      div.item_views
+        display: flex
+        align-items: center
+        /* eye image */
+        img
+          width: 20px
+          height: 20px
+          margin-left: 10px
+        span
+          font-size: 1.1em
+
+    /* description */
+    p.description
+      margin: 0
+      padding: $itemContentPadding
+      font: 400 1em $fnt_Podkova_Regular
+      letter-spacing: 0.05em
+      color: $infoColor
+
+    /* how many to read */
+    div.read
+      font: 100 .9em $fnt_Exo2_Light
+      letter-spacing: .05em
+      text-align: right
+      color: $readColor
+
+
+    /* hover */
+    &:hover
+      div.item_image
+        filter: sepia(0%)
+
+body
+  &[data-theme='dark']
+    $infoColor: #f6f6f6
+    $readColor: white
+    @include style($infoColor, $readColor)
+
+  &[data-theme='white']
+    $infoColor: $clr_news_item_info
+    $readColor: $clr_news_item_read
+    @include style($infoColor, $readColor)

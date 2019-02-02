@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta charset="windows-1251">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Самые свежие новости">
+    <title>SMART NEWS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!--<link rel="shortcut icon" href="/logo.svg" type="image/x-icon">-->
+</head>
+
+{{#if is_dark_theme}}
+    <body data-theme="dark">
+{{else}}
+    <body data-theme="white">
+{{/if}}
+
+{{>header}}
+{{>menu}}
+
+<!-- News strip component -->
+<aside id="news_strip"></aside>
+
+<!-- main page content -->
+<main class="content grid">
+
+    <!-- news -->
+    <div class="news-grid grid-item-1" id="news_app"></div>
+
+    <!-- right column -->
+    <aside class="search grid-item-2">
+
+        <!-- search widget -->
+        <div id="search_app"></div>
+
+        <!-- popular news -->
+        {{>popularNews}}
+
+        <!-- presidents are speaking -->
+        {{>tweets}}
+
+        {{>today}}
+    </aside>
+</main>
+<!--<img src="/images/news/3/1.jpg" alt="">-->
+
+<script src="scripts/NewsStrip.js"></script>
+<script src="scripts/IndexNews.js"></script>
+<script src="scripts/Search.js"></script>
+
+</body>
+</html>
+
+
+
+
+

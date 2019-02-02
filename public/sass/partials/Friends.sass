@@ -1,0 +1,253 @@
+@import "../fonts"
+@import "../breakPoints"
+@import "../colors"
+
+$border: #878787
+.row
+  display: flex
+
+div.app_container
+  //display: grid
+  //grid-template-rows: 30px 1fr
+  height: 380px
+  max-height: 380px
+  header
+    height: 30px
+    width: 100%
+    font: 100 .9em $fnt_Exo2_Light
+    &.my
+      flex-direction: row-reverse
+      justify-content: flex-end
+    div.header_button
+      display: flex
+      align-items: center
+      cursor: pointer
+      height: 100%
+      min-width: 100px
+      padding: 0 10px
+      background: #c4c4c4
+      transition: .3s
+      user-select: none
+
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      &:not(.selected)
+        margin-left: -8px
+        z-index: 1
+        &:hover
+          background: #e6e6e6
+          margin-left: 2px
+
+
+      &.selected
+        background: white
+        cursor: auto
+        z-index: 2
+
+  div.content
+    display: grid
+    grid-template-columns: 30% 1fr
+    background: white
+    width: 100%
+
+    height: 350px
+    max-height: 350px
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
+    border-bottom-left-radius: 5px
+    //overflow: hidden
+    .list
+      width: 100%
+      height: 350px
+      max-height: 350px
+      margin: 0
+      padding: 0
+      list-style-type: none
+      overflow-y: scroll
+      overflow-x: hidden
+      &::-webkit-scrollbar
+        width: 0px  /* remove scrollbar space */
+        background: transparent
+
+      .item
+        display: flex
+        align-items: center
+        width: 100%
+        min-height: 50px
+        transition: .3s
+        font: 100 .9em $fnt_Exo2_Regular
+        margin: 0
+        padding: 5px
+        box-sizing: border-box
+        user-select: none
+        cursor: pointer
+        opacity: 0
+        animation: fadeIn .5s forwards
+        &:hover
+          background: #efefef
+          .similarity
+            opacity: 0
+        &.selected
+          color: white
+          .similarity
+            opacity: 0
+        .avatar
+          position: relative
+          display: flex
+          align-items: center
+          justify-content: center
+          min-width: 40px
+          min-height: 40px
+          border-radius: 50%
+          background: #0092ff
+          margin-right: 10px
+          font-family: $fnt_Exo2_Regular
+          font-size: 1.2em
+          color: white
+          .similarity
+            position: absolute
+            display: flex
+            align-items: center
+            justify-content: center
+            bottom: 2px
+            right: -7px
+            background: rgba(167, 167, 167, 0.85)
+            padding: 2px 3px
+            min-width: 10px
+            height: 10px
+            border-radius: 8px
+            transition: .3s
+            font: 100 .5em $fnt_Exo2_Regular
+    .friend_info
+      display: grid
+      grid-template-rows: 30px 1fr
+      height: calc(350px - 10px)
+      //background: red
+      margin: 5px 0
+      border-left: 1px solid $border
+      header
+        align-items: center
+        justify-content: space-between
+        //height: 30px
+        //background: yellow
+        padding: 0 20px
+        box-sizing: border-box
+        margin-top: -5px
+        width: 100%
+        background: #ebebeb
+        border-top-right-radius: 5px
+
+        .similarity
+          font-family: $fnt_Exo2_Bold
+          margin-left: 10px
+        .like
+          display: flex
+          align-items: center
+          justify-content: center
+          height: 20px
+          background: #ec8327
+          border-radius: 5px
+          color: white
+          padding: 1px 15px
+          cursor: pointer
+          transition: .3s
+          &:hover
+            background: #eca568
+          &.connect
+            background: #fff
+            color: #3d3d3d
+            &:hover
+              color: #ec8327
+              //background: #ffb36d
+
+          span.connect
+            margin-left: 5px
+
+      .friend_history
+        //background: green
+        padding: 0 10px
+        overflow-y: scroll
+        overflow-x: hidden
+        //height: 100%
+        &::-webkit-scrollbar
+          width: 0px  /* remove scrollbar space */
+          background: transparent
+
+        .history_item
+          min-height: 70px
+          margin: 10px 0
+          cursor: auto
+          .image
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: center
+            width: 100px
+            min-width: 100px
+            height: 70px
+            margin: 0 3px
+            border-radius: 3px
+            overflow: hidden
+            cursor: pointer
+
+          .info
+            border-radius: 3px
+            overflow: hidden
+            padding: 5px
+            box-sizing: border-box
+            position: relative
+            //width: 100%
+            max-width: 50%
+            margin: 0 3px
+            z-index: 2
+            span.title
+              font-family: $fnt_Exo2_Regular
+              font-size: .85em
+              width: 100%
+              z-index: 2
+              cursor: pointer
+            P
+              font-family: $fnt_Exo2_Light
+              font-size: .8em
+              margin: 3px 0 0 0
+              z-index: 2
+              user-select: none
+            .underlay
+              position: absolute
+              top: 0
+              left: 0
+              right: 0
+              bottom: 0
+              z-index: -1
+              content: ""
+              width: 100%
+              height: 100%
+              background: #ececec
+              transition: .3s
+              opacity: .5
+
+            div.news_stat
+              display: flex
+              align-items: center
+              margin-top: 2px
+              img
+                width: 11px
+                height: 11px
+                margin-right: 3px
+              span.interest
+                font-size: .7em
+                font-family: $fnt_Exo2_Regular
+            &:hover
+              span.title
+                text-decoration: underline
+              div.underlay
+                opacity: .4
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+
+
+//@media only screen and (max-width: $at400)

@@ -1,0 +1,71 @@
+@import "../fonts"
+@import "../colors"
+@import "../breakPoints"
+
+$heightItem: 60px
+$borderWidth: 2px
+$borderPadding: 3px
+
+nav.pageMenu
+  font: 400 1.6em $fnt_KellySlab
+  letter-spacing: 0.05em
+  border-top: $borderWidth solid $clr_menu_border
+  border-bottom: $borderWidth solid $clr_menu_border
+  padding: $borderPadding 0
+  ul
+    margin: 0
+    border-top: $borderWidth solid $clr_menu_border
+    border-bottom: $borderWidth solid $clr_menu_border
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0
+    list-style-type: none
+    li
+      display: flex
+      position: relative
+      flex-grow: 1
+      align-items: center
+      justify-content: center
+      text-align: center
+      height: $heightItem
+
+      /* circle */
+      &:after
+        position: absolute
+        content: ''
+        top: calc(50% - 4px)
+        right: 0
+        width: 8px
+        height: 8px
+        background: $blackEasy_0
+        border-radius: 50%
+      &:last-child::after
+        display: none
+
+      /* link styles */
+      a
+        color: $clr_menu !important
+        transition: .1s
+        &:hover
+          color: $clr_menu_Hover !important
+        &.selected
+          color: $clr_menu_Hover !important
+
+
+
+@media only screen and (max-width: $at800)
+  nav.pageMenu
+    ul
+      flex-direction: column
+      li
+        &:after
+          top: calc(100% - 4px)
+          left: calc(50% - 4px)
+          bottom: 0
+        &:last-child::after
+          display: none
+//  header.pageHeader
+//    div.title
+//      font-size: 2em
+

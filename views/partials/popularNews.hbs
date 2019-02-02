@@ -1,0 +1,18 @@
+<a href="/news/{{popNews.id}}" class="popular_news clearA">
+    <h2>САМАЯ ЧИТАЕМАЯ НОВОСТЬ НЕДЕЛИ</h2>
+
+    <div class="item_image" style="background-image: url({{popNews.image}})">
+        <img src={{popNews.source.icon}} class="icon"/>
+    </div>
+    <h3 class="item_title"> {{popNews.title}} </h3>
+    <div class="info">
+        <time dateTime="{{popNews.valDatetime}}">{{popNews.strDatetime}}</time>
+        <div class="item_views">
+            <span>{{popNews.views}}</span>
+            <img src="/images/view.svg"/>
+        </div>
+    </div>
+    <p class="description">
+        {{popNews.description}}
+    </p>
+</a>

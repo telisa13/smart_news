@@ -1,0 +1,152 @@
+@import "../fonts"
+@import "../colors"
+@import "../sizes"
+@import "../breakPoints"
+
+$size: 300px
+$rowGap: 40px
+
+/* min column gap */
+$columnGap: 10px
+$imageHeight: 150px
+
+$iconSize: 15px
+$itemContentPadding: 3px 0
+$circleSize: 6px
+
+$btn_margin: 20px auto calc(#{$sz_StripMargin} + #{$sz_StripContent} + #{$sz_StripPadding} * 2) auto
+//$btn_margin: calc(#{$sz_StripMargin} )
+
+div.news_app_container
+  div.news_app_grid
+    display: grid
+    grid-template-columns: repeat(auto-fill, $size)
+    grid-row-gap: $rowGap
+    grid-column-gap: $columnGap
+    justify-content: space-evenly
+
+    /* news item */
+    a.news_app_item
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      //background: white
+      min-height: $size
+      text-align: justify
+
+      /* image */
+      div.item_image
+        width: 100%
+        height: $imageHeight
+        background-size: cover
+        background-position: center
+        filter: sepia(50%)
+        transition: .3s
+        img.icon
+          margin: 10px
+          width: $iconSize
+          height: $iconSize
+
+      /* title */
+      h3.item_title
+        display: block
+        margin: 0
+        padding: $itemContentPadding
+        font: 400 1.1em $fnt_KellySlab
+        //max-height: 40px
+        word-break: break-all
+        overflow: hidden
+        text-overflow: clip
+
+      /* date time views */
+      div.info
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: $itemContentPadding
+        font: 400 .9em $fnt_Podkova_Regular
+        letter-spacing: 0.05em
+        color: $clr_news_item_info
+        div.item_views
+          display: flex
+          align-items: center
+          /* eye image */
+          img
+            width: 20px
+            height: 20px
+            margin-left: 10px
+          span
+            font-size: 1.1em
+
+      /* description */
+      p.description
+        margin: 0
+        padding: $itemContentPadding
+        font: 400 1em $fnt_Podkova_Regular
+        letter-spacing: 0.05em
+        color: $clr_news_item_info
+
+      /* how many to read */
+      div.read
+        font: 100 .9em $fnt_Exo2_Light
+        letter-spacing: .05em
+        text-align: right
+        color: $clr_news_item_read
+
+      /* circles */
+      footer.item_bottom
+        display: flex
+        align-items: center
+        justify-content: center
+        div.circle
+          width: $circleSize
+          height: $circleSize
+          border: 1px solid $clr_news_item_circle
+          border-radius: 50%
+          margin: 5px
+          transition: .3s
+
+
+
+      /* hover */
+      &:hover
+        div.item_image
+          filter: sepia(0%)
+        footer.item_bottom
+          div.circle
+            background: $clr_news_item_circle
+
+
+  /* load more button */
+  div.news_app_button
+    display: flex
+    position: relative
+    width: 160px
+    align-items: center
+    justify-content: center
+    margin: $btn_margin
+    color: $clr_news_button
+    cursor: pointer
+    font: 400 1.1em $fnt_Podkova_Regular
+    letter-spacing: 0.05em
+    transition: .3s
+    &:hover
+      //color: $clr_news_button_Hover
+      &:after
+        transform: scaleX(1)
+        transform-origin: bottom left
+    /* underline animation */
+    &:after
+      position: absolute
+      content: ''
+      width: 100%
+      transform: scaleX(0)
+      height: 2px
+      bottom: -5px
+      left: 0
+      background-color: $clr_news_button
+      transform-origin: bottom right
+      transition: transform 0.25s ease-out
+
+//@media only screen and (max-width: $at800)
+

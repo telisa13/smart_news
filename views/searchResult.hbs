@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta charset="windows-1251">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Самые свежие новости">
+    <title>SMART NEWS</title>
+    <link rel="stylesheet" href="/styles/searchResult.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!--<link rel="shortcut icon" href="/logo.svg" type="image/x-icon">-->
+</head>
+{{#if is_dark_theme}}
+    <body data-theme="dark">
+{{else}}
+    <body data-theme="white">
+{{/if}}
+{{>header}}
+{{>menu}}
+
+<!-- News strip component -->
+<aside id="news_strip"></aside>
+
+<!-- main page content -->
+<main class="content grid">
+
+    <div class="result">
+        <header class="result_header">
+            <p>Результаты поиска по запросу: </p>
+            <span class="query"> {{query}}</span>
+        </header>
+        <div class="result_news">
+            {{#each news}}
+                <a href="/news/{{id}}" class="clearA row">
+                    <div class="image" style="background-image: url('{{image}}')"></div>
+                    <div class="info">
+                        <h3>{{title}}</h3>
+                        <footer class="row">
+                            <span>{{category.name}}</span>
+
+                            <div class="news_stat">
+                                <img src="/images/view.svg"/>
+                                <span>{{views}}</span>
+                            </div>
+                        </footer>
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+
+    </div>
+
+
+    <!-- right column -->
+    <aside class="search grid-item-2">
+
+        <!-- search widget -->
+        <div id="search_app"></div>
+
+        <!-- popular news -->
+        {{>popularNews}}
+
+        <!-- presidents are speaking -->
+        {{>tweets}}
+
+        {{>today}}
+    </aside>
+</main>
+
+<script src="/scripts/NewsStrip.js"></script>
+<script src="/scripts/Search.js"></script>
+
+</body>
+</html>
+
+
+
+
+

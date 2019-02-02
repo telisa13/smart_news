@@ -1,0 +1,23 @@
+<section class="tweets">
+    <h1>Президенты говорят...</h1>
+    <ul class="container">
+        {{#each tweets}}
+            <li>
+                <header class="president">
+                    <div class="image" style="background-image: url('{{this.president.image}}')"></div>
+                    <div class="info">
+                        <span class="name">{{this.president.name}}</span>
+                        <span class="country">{{this.president.country}}</span>
+                    </div>
+                </header>
+                <div class="text">
+                    {{this.text}}
+                </div>
+                <footer>
+                    <time datetime={{this.valDatetime}}>{{this.strDatetime}}</time>
+                </footer>
+            </li>
+        {{/each}}
+    </ul>
+
+</section>

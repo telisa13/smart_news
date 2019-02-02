@@ -1,0 +1,115 @@
+@import "colors"
+@import "fonts"
+@import "breakPoints"
+@import "normalize.css"
+
+@mixin style_svg_active($svgColor1, $svgColor2)
+  /* svg styled */
+  svg.active
+    cursor: pointer
+    path
+      fill: $svgColor1
+      transition: .3s
+    &:hover
+      path
+        fill: $svgColor2
+
+
+
+body
+  padding: 20px
+  &[data-theme='dark']
+    $svgColor1: white
+    $svgColor2: $svg_Hover
+    @include style_svg_active($svgColor1, $svgColor2)
+    background: black
+    .clearA
+      outline: none
+      &:link, &:visited, &:active
+        text-decoration: none
+        color: white
+        outline: none
+
+  &[data-theme='white']
+    $svgColor1: $svg
+    $svgColor2: $svg_Hover
+    @include style_svg_active($svgColor1, $svgColor2)
+    background: $clr_body
+    .clearA
+      outline: none
+      &:link, &:visited, &:active
+        text-decoration: none
+        color: black
+        outline: none
+
+svg.email
+  width: 18px
+  height: 18px
+  rect
+    fill: #ECEFF1
+  polygon
+    fill: #CFD8DC
+  path
+    fill: #F44336
+/*  degree symbol */
+span.degree
+  position: relative
+  padding-left: 7px
+  &:before
+    font-size: 10px
+    left: 0
+    top: 0
+    position: absolute
+    content: 'o'
+
+
+
+/* bouncy loader */
+div.loading
+  display: flex
+  justify-content: center
+  &>div
+    width: 1rem
+    height: 1rem
+    margin: 3rem 0.2rem
+    background: $blackEasy_2
+    border-radius: 50%
+    animation: bouncing_loading 0.6s infinite alternate
+  &>div:nth-child(2)
+    animation-delay: 0.2s
+  &>div:nth-child(3)
+    animation-delay: 0.4s
+
+.btn_animate_underline
+  transition: .3s
+  &:hover
+    //color: $clr_news_button_Hover
+    &:after
+      transform: scaleX(1)
+      transform-origin: bottom left
+  /* underline animation */
+  &:after
+    position: absolute
+    content: ''
+    width: 100%
+    transform: scaleX(0)
+    height: 2px
+    bottom: -5px
+    left: 0
+    background-color: $clr_news_button
+    transform-origin: bottom right
+    transition: transform 0.25s ease-out
+
+
+@keyframes bouncing_loading
+  0%
+    opacity: 1
+    transform: translateY(0)
+  100%
+    opacity: 0.1
+    transform: translateY(-1rem)
+
+@media only screen and (max-width: $at530)
+  body
+    padding: 10px
+

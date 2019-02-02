@@ -1,0 +1,81 @@
+@import "../fonts"
+@import "../colors"
+
+$minHeight: 100px
+$width: 300px
+
+$avatarSize: 50px
+
+@mixin style($color)
+  section.tweets
+    margin: 0 auto 60px auto
+    width: $width
+    color: $color
+    h1
+      font: 400 1.2em $fnt_KellySlab
+      letter-spacing: 0.07em
+    ul.container
+      width: 100%
+      padding: 0
+      list-style-type: none
+
+      /* one tweet */
+      li
+        width: 100%
+        min-height: $minHeight
+        padding: 10px
+        box-sizing: border-box
+        margin-bottom: 20px
+        border: 1px solid $blackEasy_2
+
+        header.president
+          display: flex
+          align-items: center
+
+          /* avatar */
+          div.image
+            width: $avatarSize
+            height: $avatarSize
+            border-radius: 50%
+            background-size: cover
+            background-repeat: no-repeat
+            background-position: center
+
+          /* president info */
+          div.info
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            margin-left: 10px
+            span
+              letter-spacing: .07em
+              &.name
+                font: 400 1em $fnt_Exo2_Regular
+              &.country
+                font: 400 .9em $fnt_Exo2_Thin
+
+        /* tweet text */
+        div.text
+          margin: 10px 0
+          font: 400 .95em $fnt_Exo2_Light
+          letter-spacing: 0.05em
+          line-height: 1.3em
+        footer
+          text-align: right
+          time
+            letter-spacing: 0.05em
+            font: 400 .8em $fnt_Exo2_Light
+
+
+body
+  &[data-theme='dark']
+    $color: #f6f6f6
+    @include style($color)
+
+  &[data-theme='white']
+    $color: black
+    @include style($color)
+
+
+//@media only screen and (max-width: $at800)
+

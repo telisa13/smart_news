@@ -1,0 +1,45 @@
+<nav class="pageMenu">
+    <ul>
+        {{#if index }}
+            <li><a href="/" class="clearA selected">ГЛАВНАЯ</a></li>
+        {{else}}
+            <li><a href="/" class="clearA">ГЛАВНАЯ</a></li>
+        {{/if}}
+
+        {{#if categories }}
+            <li><a href="/categories" class="clearA selected">КАТЕГОРИИ</a></li>
+        {{else}}
+            <li><a href="/categories" class="clearA">КАТЕГОРИИ</a></li>
+        {{/if}}
+
+        {{#if feed }}
+            <li><a href="/feed" class="clearA selected">ЛЕНТА</a></li>
+        {{else}}
+            <li><a href="/feed" class="clearA">ЛЕНТА</a></li>
+        {{/if}}
+
+        {{#if about }}
+            <li><a href="" class="clearA selected">О НАС</a></li>
+        {{else}}
+            <li><a href="" class="clearA">О НАС</a></li>
+        {{/if}}
+
+        {{#if isAuth }}
+
+            {{#if profile }}
+                <li><a href="/user/profile" class="clearA selected">ПРОФИЛЬ</a></li>
+            {{else}}
+                <li><a href="/user/profile" class="clearA">ПРОФИЛЬ</a></li>
+            {{/if}}
+
+        {{else}}
+
+            {{#if login }}
+                <li><a href="/auth" class="clearA selected">ВОЙТИ</a></li>
+            {{else}}
+                <li><a href="/auth" class="clearA">ВОЙТИ</a></li>
+            {{/if}}
+
+        {{/if}}
+    </ul>
+</nav>

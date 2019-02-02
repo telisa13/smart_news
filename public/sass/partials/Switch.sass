@@ -1,0 +1,40 @@
+@import "../fonts"
+@import "../breakPoints"
+@import "../colors"
+
+$height: 40px
+$qWidth: 265px
+
+
+div.switch_app
+  display: inline-block
+  //width: auto
+  div.switch_app_inner
+    display: flex
+    font: 100 .9em $fnt_Exo2_Regular
+    letter-spacing: 0.07em
+    overflow: hidden
+    border-radius: 3px
+    user-select: none
+    div.switch_button
+      min-width: 125px
+      box-sizing: border-box
+      width: 50%
+      background: white
+      padding: 5px 10px
+      text-align: center
+      transition: .3s
+      &.clickable
+        cursor: pointer
+        &:hover
+          //background: #f3f3f3
+          background: #ffe9d1
+      &.selected
+        //box-shadow: inset 0 0 5px rgba(0,0,0,0.4)
+        box-shadow: inset 0 0 5px #b38a5a
+        background: $pastelLight_0
+        color: white
+
+
+
+//@media only screen and (max-width: $at400)

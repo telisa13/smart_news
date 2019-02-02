@@ -1,0 +1,319 @@
+@import "common"
+@import "partials/header"
+@import "partials/menu"
+@import "partials/newsStrip"
+//@import "partials/content"
+@import "partials/popularNews"
+@import "partials/search"
+@import "partials/tweets"
+@import "partials/today"
+
+$padding: 20px
+$border: #b8b8b8
+
+// text-color
+$newsHeader: #3d3d3d
+$newsInfoText: #868686
+$newsImageText: #000
+$newsBodyText: #3d3d3d
+$newsTagsText: #3d3d3d
+$newsTagsLink: #d9a155
+$recommendedText: #000
+
+// backs
+$newsImageBack: rgba(244, 241, 236, 0.75)
+$likeButtonBack: rgba(255, 186, 127, 0.3)
+$newsTagsBack: white
+
+
+main.content
+  margin: 20px
+  width: calc(100% - 40px)
+  min-height: 400px
+  &.grid
+    display: grid
+    grid-template-columns: minmax(300px, 1fr) 300px
+
+.row
+  display: flex
+
+div.news
+  margin-bottom: 30px
+  header
+    padding: 10px $padding 30px $padding
+    border-left: 6px solid $border
+    box-sizing: content-box
+
+
+
+
+    h1
+      font: 100 2em $fnt_Podkova_Medium
+      letter-spacing: 0.07em
+      color: #3d3d3d
+      margin: 0 0 10px 0
+
+    div.info
+      display: flex
+      align-items: center
+      font: 100 .9em $fnt_Podkova_Regular
+      letter-spacing: 0.07em
+      color: #868686
+      margin-bottom: 10px
+      a, div, time
+        margin-right: 20px
+      div.item_views
+        display: flex
+        align-items: center
+        /* eye image */
+        img
+          width: 18px
+          height: 18px
+          margin-left: 5px
+        span
+          font-size: 1em
+    //a
+      //color: #b8b8b8 !important
+    a:hover
+      text-decoration: underline
+    >div.row
+      font: 100 .9em $fnt_Podkova_Regular
+      letter-spacing: 0.07em
+      color: #868686
+      align-items: center
+      height: 20px
+
+      .share
+        cursor: pointer
+        margin: 0 5px
+        margin-top: 10px
+        &:first-child
+          margin-left: 0
+        svg
+          width: 18px
+          height: 18px
+
+          path
+            transition: .2s
+            fill: #7d7d7d
+
+          &.site:hover path
+            fill: #ea5f00
+
+          &.twitter:hover path
+            fill: #76A9EA
+
+          &.copy:hover path
+            fill: #a9a9a9
+
+          &.facebook
+            path
+              fill: $beigeLight
+            circle
+              transition: .2s
+              fill: #7d7d7d
+            &:hover
+              circle
+                fill: #3B5998
+              path
+                fill: #fff
+
+      img
+        width: 15px
+        height: 15px
+        margin-right: 5px
+
+
+
+  >div.row
+    padding: 10px 30px 30px $padding
+    border-left: 6px solid transparent
+    box-sizing: content-box
+    div.image
+      float: left
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center
+      min-width: 500px
+      width: 500px
+      min-height: 250px
+      height: 250px
+      margin: 0 10px 10px 0
+      display: flex
+      align-items: flex-end
+      span
+        padding: 10px
+        background-color: rgba(244, 241, 236, 0.75)
+        line-height: 1em
+        font-size: .9em
+        color: #000
+        text-align: start
+        transition: .5s
+        width: 100%
+      &:hover
+        span
+          opacity: 0.1
+
+
+    p.body
+      //margin: 10px
+      font: 100 1.1em $fnt_Podkova_Regular
+      letter-spacing: 0.07em
+      line-height: 1.7em
+      text-align: justify
+      color: #3d3d3d
+  div.button_container
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap-reverse
+    margin: 0 30px
+    min-height: 50px
+    button
+      display: flex
+      align-items: center
+      //background-color: transparent
+      //background-color: rgba(255, 186, 127, 0.8)
+      background-color: rgba(255, 186, 127, 0.3)
+
+      border: none
+      outline: none
+      width: 250px
+      height: 50px
+      padding: 5px 10px
+      cursor: pointer
+      border-radius: 2px
+      &:hover
+        span
+          letter-spacing: 0.1em
+        svg path
+          fill: #a13514
+      svg
+        min-height: 35px
+        min-width: 35px
+        margin-right: 10px
+        path
+          fill: #ff5c1e
+          transition: .3s
+        &.liked
+          path
+            fill: #a13514
+      span
+        font: 100 1em $fnt_KellySlab
+        letter-spacing: 0.09em
+        text-align: start
+        transition: .3s
+      &.liked
+        background-color: transparent
+
+    .tags
+      max-width: 50%
+      //white-space: nowrap
+      //word-break: keep-all
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      .tags_title
+        width: 100%
+        font: 100 1em $fnt_Podkova_Regular
+        margin: 5px 0
+        color: #3d3d3d
+
+      &>a
+        margin: 3px
+        font: 100 .9em $fnt_Podkova_Regular
+        color: #d9a155
+        background-color: white
+        padding: 5px
+        &:hover
+          text-decoration: underline
+
+  div.recommendedNews
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    padding-bottom: 30px
+
+    &>h3
+      width: 100%
+      font: 100 1em $fnt_Podkova_Medium
+      letter-spacing: 0.05em
+      margin-left: 30px
+
+    a.recommended
+      display: flex
+      align-items: flex-end
+      position: relative
+      min-width: 250px
+      width: 250px
+
+      min-height: 170px
+      height: 170px
+
+      margin: 10px
+
+
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center
+
+
+      img
+        position: absolute
+        width: 15px
+        height: 15px
+        left: 5px
+        top: 5px
+
+      span
+        display: flex
+        align-items: center
+        width: 100%
+        padding: 5px
+        background-color: rgba(244, 241, 236, 0.85)
+        line-height: 1em
+        font-size: .9em
+        color: #000
+        text-align: start
+        transition: .5s
+        height: 25%
+      &:hover
+        span
+          opacity: 0.2
+
+
+@media only screen and (max-width: $at950)
+  main.content
+    &.grid
+      grid-template-columns: 1fr
+      &>.grid-item-2
+        grid-row: 2
+  div.button_container
+    margin-right: 0 !important
+    justify-content: center !important
+
+@media only screen and (max-width: $at700)
+  $padding: 5px
+  main.content
+    margin: 10px 0
+    width: 100%
+
+  div.news
+    header
+      padding: $padding $padding 20px $padding
+      border-left: 4px solid $border
+      h1
+        font: 100 1.5em $fnt_Podkova_Medium
+        margin: 0 0 10px 0
+    >div.row
+      align-items: center
+      padding: 5px
+      border-left: 0px
+      div.image
+        width: 100%
+        min-width: 250px
+        margin: 0
+
+
+
+

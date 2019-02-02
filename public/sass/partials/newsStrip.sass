@@ -1,0 +1,71 @@
+@import "../fonts"
+@import "../colors"
+@import "../sizes"
+@import "../breakPoints"
+
+//$height: 40px
+$height_content: $sz_StripContent
+$padding: $sz_StripContent
+$bottom: $sz_StripMargin
+
+
+@mixin style($color, $stripColor1, $stripColor2)
+  aside#news_strip
+    position: fixed
+    left: 0
+    right: 0
+    bottom: $bottom
+    z-index: 5
+    font: 400 1em $fnt_Exo2_Regular
+    letter-spacing: 0.05em
+    background: $stripColor1
+    overflow: hidden
+    user-select: none
+    padding: $sz_StripPadding 0
+    div.news_container
+      display: flex
+
+      background: $stripColor2
+      div.news_slider
+        display: flex
+        height: $height_content
+        align-items: center
+        white-space: nowrap
+        margin-left: 200px
+        a.item
+          position: relative
+          padding: 0 40px
+          &:hover
+            text-decoration: underline
+          /* circles between news */
+          &:after
+            position: absolute
+            content: ''
+            top: calc(50% - 4px)
+            right: 0
+            width: 8px
+            height: 8px
+            background: $color
+            border-radius: 50%
+          &:last-child::after
+            display: none
+
+
+
+  @media only screen and (max-width: $at400)
+    aside#news_strip
+      display: none
+
+
+body
+  &[data-theme='dark']
+    $stripColor1: rgba(75, 51, 19, 0.55)
+    $stripColor2: #382112
+    $color: white
+    @include style($color, $stripColor1, $stripColor2)
+
+  &[data-theme='white']
+    $stripColor1: $clr_news_strip_back
+    $stripColor2: $clr_news_strip_content
+    $color: $blackEasy_0
+    @include style($color, $stripColor1, $stripColor2)

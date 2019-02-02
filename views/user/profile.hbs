@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>ПРОФИЛЬ | SMART NEWS</title>
+
+    <meta charset="UTF-8">
+    <!--<meta charset="windows-1251">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Самые свежие новости">
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+{{#if is_dark_theme}}
+    <body data-theme="dark">
+{{else}}
+    <body data-theme="white">
+{{/if}}
+
+{{>header}}
+{{>menu}}
+
+
+
+<!-- News strip component -->
+<aside id="news_strip"></aside>
+
+<!-- main page content -->
+<main class="content">
+
+
+    <details>
+        <summary>Настройки профиля</summary>
+        <form id="profile"
+              autoComplete="off"
+              name="profile"
+              method="post"
+              action="/user/profile"
+              class="profile_form">
+            <h1>Данные пользователя</h1>
+
+            <label for="name">
+                <input name="name" type="text" value="{{user.name}}" required placeholder="Псевдоним" maxLength="100"/>
+                <input name="color" value="{{user.color}}" id="input_color" hidden/>
+                <div id="color_pick_app"></div>
+            </label>
+
+            <label for="email">
+                <input class="text" name="email" value="{{user.email}}" required  type="email" placeholder="E-mail" maxLength="100" />
+            </label>
+
+
+            {{#if is_dark_theme}}
+                <input type="number" id="input_theme" name="is_dark_theme" value="1" hidden/>
+            {{else}}
+                <input type="number" id="input_theme" name="is_dark_theme" value="0" hidden/>
+            {{/if}}
+
+            <h2>Время отправки сводки новостей</h2>
+            <div class="dayTime">
+                <label for="day">
+                    <select name="summary_news_day" id="day">
+
+                        {{#if user.dayArray.day1 }}
+                            <option value="1" selected>Понедельник</option>
+                        {{else}}
+                            <option value="1">Понедельник</option>
+                        {{/if}}
+
+                        {{#if user.dayArray.day2 }}
+                            <option value="2" selected>Вторник</option>
+                        {{else}}
+                            <option value="2">Вторник</option>
+                        {{/if}}
+                        {{#if user.dayArray.day3 }}
+                            <option value="3" selected>Среда</option>
+                        {{else}}
+                            <option value="3">Среда</option>
+                        {{/if}}
+                        {{#if user.dayArray.day4 }}
+                            <option value="4" selected>Четверг</option>
+                        {{else}}
+                            <option value="4">Четверг</option>
+                        {{/if}}
+                        {{#if user.dayArray.day5 }}
+                            <option value="5" selected>Пятница</option>
+                        {{else}}
+                            <option value="5">Пятница</option>
+                        {{/if}}
+                        {{#if user.dayArray.day6 }}
+                            <option value="6" selected>Суббота</option>
+                        {{else}}
+                            <option value="6">Суббота</option>
+                        {{/if}}
+                        {{#if user.dayArray.day7 }}
+                            <option value="7" selected>Воскресенье</option>
+                        {{else}}
+                            <option value="7">Воскресенье</option>
+                        {{/if}}
+                    </select>
+                </label>
+
+                <label for="time">
+                    <input id="time" name="summary_news_time" type="time" required value="{{user.summary_news_time}}">
+                </label>
+
+            </div>
+
+
+            <input class="btn"  type="submit" value="Сохранить" />
+
+            <a href="/auth/logout" class="logout clearA">Выйти из аккаунта</a>
+
+
+
+
+        </form>
+    </details>
+
+    <div id="switch_theme_app"></div>
+
+    <div id="friends_app"></div>
+
+
+    <div class="history">
+        <h3>Просмотренные новости</h3>
+        {{#each news}}
+            <div class="news">
+                <div class="image" style="background-image: url({{image}})"></div>
+                <div class="info">
+                    <span class="title">{{title}}</span>
+                    <p>{{description}}</p>
+                    <footer class="news">
+                        <div class="news_stat">
+
+                            <div class="news_stat">
+                                <img src="/images/view.svg"/>
+                                <span>{{views}}</span>
+                            </div>
+
+                            {{#if interesting }}
+                                <div class="news_stat">
+                                    <img src="/images/exclamation-mark.png"/>
+                                    <span class="interest">Вам это интересно</span>
+                                </div>
+                            {{/if}}
+                        </div>
+
+                        <a href="/news/{{id}}" class="clearA">Открыть</a>
+                    </footer>
+
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+
+
+
+
+
+
+
+
+</main>
+
+
+
+<script src="/scripts/NewsStrip.js"></script>
+<script src="/scripts/ColorPick.js"></script>
+<script src="/scripts/SwitchTheme.js"></script>
+<script src="/scripts/Friends.js"></script>
+</body>
+
+</html>
+
+

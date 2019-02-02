@@ -1,0 +1,92 @@
+@import "common"
+@import "partials/header"
+@import "partials/menu"
+@import "partials/newsStrip"
+//@import "partials/content"
+@import "partials/popularNews"
+@import "partials/search"
+@import "partials/tweets"
+@import "partials/today"
+
+$padding: 20px
+$border: #b8b8b8
+
+main.content
+  margin: 20px
+  width: calc(100% - 40px)
+  min-height: 400px
+  &.grid
+    display: grid
+    grid-template-columns: minmax(300px, 1fr) 300px
+
+.row
+  display: flex
+
+div.result
+  margin: 0 auto
+  max-width: 500px
+  margin-bottom: 100px
+  header.result_header
+    font: 100 1em $fnt_Exo2_Regular
+    letter-spacing: 0.03em
+    p
+      margin: 1px 0
+      padding-bottom: 5px
+      color: #3d3d3d
+    span.query
+      color: black
+      font-family: $fnt_Exo2_Bold
+
+
+  .result_news
+    a
+      min-height: 50px
+      margin: 20px 0
+      border-top: 1px solid #808080
+      box-sizing: border-box
+      transition: .3s
+      &:hover
+        background: rgba(255, 255, 255, 0.5)
+      div.image
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        height: 50px
+        min-width: 100px
+        margin-right: 5px
+
+      div.info
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        &>h3
+          font: 100 .8em $fnt_Exo2_Regular
+          letter-spacing: 0.03em
+          margin: 0
+        footer
+          span
+            font: 100 .75em $fnt_Exo2_Regular
+            letter-spacing: 0.05em
+            color: #777777
+            margin-right: 10px
+          div.news_stat
+            display: flex
+            align-items: center
+            font: 100 .9em $fnt_Exo2_Light
+            img
+              width: 16px
+              height: 16px
+              margin-right: 6px
+            span
+              margin-right: 10px
+              &.interest
+                font-family: $fnt_Exo2_Regular
+
+
+
+
+//@media only screen and (max-width: $at950)
+
+
+
+

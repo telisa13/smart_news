@@ -1,0 +1,45 @@
+@import "../fonts"
+@import "../breakPoints"
+@import "../colors"
+
+$height: 40px
+$qWidth: 265px
+
+@mixin style($color)
+  form.page_search
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+    height: $height
+    margin: 0 auto 40px auto
+
+    width: 300px
+    font: 100 1em $fnt_Exo2_Light
+    &>svg
+      height: 26px
+    div.query
+      display: flex
+      justify-content: space-between
+      border-bottom: 1px solid $color
+      width: $qWidth
+      input
+        border: none
+        outline: none
+        background: transparent
+        padding: 0 10px
+        width: calc(#{$qWidth} - 30px)
+        box-sizing: border-box
+
+      &>svg
+        height: 22px
+        margin-bottom: 3px
+
+
+body
+  &[data-theme='dark']
+    $color: #f3f1eb
+    @include style($color)
+
+  &[data-theme='white']
+    $color: black
+    @include style($color)
