@@ -1,9 +1,9 @@
-exports.name = 'smart_news';
-exports.user = 'root';
-exports.password = 'mysql101';
+exports.name = 'heroku_c2fe47fa4c1fa73';
+exports.user = 'bb84133ff57204';
+exports.password = 'd5d4f448';
 
 exports.config = {
-  host: 'localhost',
+  host: 'eu-cdbr-west-02.cleardb.net',
   dialect: 'mysql',
   logging: false,
   dialectOptions: {
