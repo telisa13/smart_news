@@ -1,6 +1,6 @@
-exports.name = 'heroku_c2fe47fa4c1fa73';
-exports.user = 'bb84133ff57204';
-exports.password = 'd5d4f448';
+exports.name = 'heroku_677d2009f795112';
+exports.user = 'b557c7a04d9a38';
+exports.password = 'caecc11f';
 
 exports.config = {
   host: 'eu-cdbr-west-02.cleardb.net',
